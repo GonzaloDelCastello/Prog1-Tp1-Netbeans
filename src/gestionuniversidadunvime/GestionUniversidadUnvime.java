@@ -15,8 +15,8 @@ public class GestionUniversidadUnvime {
     estudiante1.setEdad(20);
     estudiante1.setPromedio(8.5);
     //Crea Profesores
-    Profesor profesor1 = new Profesor("nombre profe", "apellido prof", 37, "Matemático", 10);
-    Profesor profesor2 = new Profesor("Laura", "Fernandez", 40, "Programación", 15);
+    Profesor profesor1 = new Profesor("nombre profe", "apellido prof", 37, "Matematico", 10);
+    Profesor profesor2 = new Profesor("Laura", "Fernandez", 40, "Programacion", 15);
 
 
         //System.out.println(estudiante1.toString());
@@ -28,7 +28,7 @@ public class GestionUniversidadUnvime {
     Universidad uNVIME = new Universidad("UNVIME","Av. Siempre Viva 123");
     
     //Crea una carrera
-    Carrera programacion = new Carrera("Programación",3);
+    Carrera programacion = new Carrera("Programacion",3);
     Carrera ingSistemas = new Carrera("Ingenieria en Sistemas",5);
     
     //Crea materias
@@ -54,12 +54,29 @@ public class GestionUniversidadUnvime {
     matematica.agregarEstudiante(estudiante1);
 
     System.out.println(uNVIME.getNombre() + " tiene las siguientes carreras:");
+
+    // 1. Recorremos Carreras
     for (Carrera carrera : uNVIME.getCarreras()) {
-        System.out.println("- " + carrera.getNombre() + " (" + carrera.getDuracion() + " años) con las siguientes materias:");
-        for (Materia materia : carrera.getMaterias()) {
-            System.out.println("  * " + materia.getNombre() + " (Código: " + materia.getCodigo() + ", Créditos: " + materia.getCreditos() + ") con los siguientes estudiantes:");
-            for (Estudiante estudiante : materia.getEstudiantes()) {
-                System.out.println("    - " + estudiante.getNombre() + " " + estudiante.getApellido() + " (Edad: " + estudiante.getEdad() + ", Promedio: " + estudiante.getPromedio() + ")");
+        // IMPORTANTE: Verificamos si hay una carrera real en esta posición
+        if (carrera != null) { 
+            
+            System.out.println("- " + carrera.getNombre() + " (" + carrera.getDuracion() + " anios) con las siguientes materias:");
+            
+            // 2. Recorremos Materias de esa carrera
+            // (Asumimos que getMaterias() devuelve el array, que también tiene huecos nulos)
+            for (Materia materia : carrera.getMaterias()) {
+                if (materia != null) {
+                    
+                    System.out.println("  * " + materia.getNombre() + " (Codigo: " + materia.getCodigo() + ", Creditos: " + materia.getCreditos() + ") con los siguientes estudiantes:");
+                    
+                    // 3. Recorremos Estudiantes de esa materia
+                    for (Estudiante estudiante : materia.getEstudiantes()) {
+                        if (estudiante != null) {
+                            
+                            System.out.println("    - " + estudiante.getNombre() + " " + estudiante.getApellido() + " (Edad: " + estudiante.getEdad() + ", Promedio: " + estudiante.getPromedio() + ")");
+                        }
+                    }
+                }
             }
         }
     }
@@ -74,7 +91,7 @@ public class GestionUniversidadUnvime {
     listPersonas[3]=profesor2;
     for (int i = 0; i < listPersonas.length; i++) {
         if (listPersonas[i] != null) {
-            System.out.println(listPersonas[i].toString());;
+            System.out.println(listPersonas[i].toString());
         }
     }
 
@@ -83,12 +100,12 @@ public class GestionUniversidadUnvime {
     miembros[1] = estudiante2;
     miembros[2] = profesor1;
     miembros[3] = profesor2;
-    for (int i = 0; i < miembros.length; i++) {
-        if (miembros[i] != null) {
-            System.out.println(miembros[i].obtenerInformacionCompleta());
-            System.out.println("Rol: " + miembros[i].obtenerRol());
+        for (MiembroDeUniversidad miembro : miembros) {
+            if (miembro != null) {
+                System.out.println(miembro.obtenerInformacionCompleta());
+                System.out.println("Rol: " + miembro.obtenerRol());
+            }
         }
-    }
 
 
     }
