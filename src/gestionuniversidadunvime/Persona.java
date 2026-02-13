@@ -10,6 +10,14 @@ public abstract class Persona implements MiembroDeUniversidad {
     protected String nombre;
     protected String apellido;
     protected int edad;
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
     protected String dni;
 
     public Persona () {};
@@ -29,12 +37,16 @@ public abstract class Persona implements MiembroDeUniversidad {
     }
     public void setEdad(int edad) {
         if (edad>120 || edad<16) {
-            System.out.println("Edad no valida");
-            return;         
+            System.out.println("Edad no valida");        
         } else {
             this.edad = edad;
         }
     }
+
+    public int getEdad() {
+        return edad;
+    }
+    
 
     @Override
     public String toString() {

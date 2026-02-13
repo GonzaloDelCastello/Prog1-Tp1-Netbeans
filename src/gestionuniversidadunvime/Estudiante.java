@@ -41,15 +41,8 @@ public Materia[] getMaterias() {
 //     return suma / this.materias.size();
 // }
 
-public String getNombre() {
-    return this.nombre;
-}
-public String getApellido() {
-    return this.apellido;
-}
-public int getEdad() {
-    return this.edad;
-}
+
+
 public double getPromedio() {
     return this.promedio;
 }
@@ -76,7 +69,28 @@ public String obtenerRol() {
     return "Estudiante";
 }
 
-public static double calcularPromedioRecursivo(Materia[] materias, int indice) {
-    return indice;
+public static double calcularPromedioIterativo(Examen[] examenes) {
+    double aux = 0;
+    if (examenes.length == 0){
+        return 0.0;
+    }
+    for (Examen examen: examenes) {//for (i=0;i<examenes.length;i++){}
+        aux = aux + examen.getNota();
+    }
+    return aux / examenes.length;
 };
-}
+
+public static double calcularPromedioRecursivo(Examen[] examenes, int indice) {
+    
+    if (examenes[indice] == null || examenes.length == 0 || indice < 0) {
+        return 0.0;
+    } 
+    if(indice == 0){
+        return examenes[0].getNota();
+    } else {
+        double promedio = (examenes[indice].getNota() + (calcularPromedioRecursivo(examenes, indice-1)*(indice-1)))/(indice + 1);
+    return promedio;        
+    }
+    
+    }
+};

@@ -8,15 +8,17 @@ package gestionuniversidadunvime;
 public class Examen {
     private Materia materia;
     private Estudiante estudiante;
+    private double nota;
     private int codExamen;
 
     public Examen() {
     }
 
-    public Examen(Materia materia, Estudiante estudiante, int codExamen) {
+    public Examen(Materia materia, Estudiante estudiante, double nota, int codExamen) {
         this.materia = materia;
         this.estudiante = estudiante;
         this.codExamen = codExamen;
+        this.nota = nota;
     }
 
     public Materia getMateria() {
@@ -42,6 +44,15 @@ public class Examen {
     public void setCodExamen(int codExamen) {
         this.codExamen = codExamen;
     }
+
+    public double getNota() {
+        return nota;
+    }
+
+    public void setNota(double nota) {
+        this.nota = nota;
+    }
+    
     
     
 }
