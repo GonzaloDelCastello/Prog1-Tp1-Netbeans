@@ -5,8 +5,6 @@
 package gestionuniversidadunvime;
 
 
-import java.util.ArrayList;
-
 public class Universidad {
     
     private int id;

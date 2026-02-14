@@ -71,24 +71,27 @@ public String obtenerRol() {
 
 public static double calcularPromedioIterativo(Examen[] examenes) {
     double aux = 0;
-    if (examenes.length == 0){
+    if (examenes == null || examenes.length == 0){
         return 0.0;
     }
     for (Examen examen: examenes) {//for (i=0;i<examenes.length;i++){}
+        if (examen != null){
         aux = aux + examen.getNota();
+        }
     }
     return aux / examenes.length;
 };
 
 public static double calcularPromedioRecursivo(Examen[] examenes, int indice) {
     
-    if (examenes[indice] == null || examenes.length == 0 || indice < 0) {
-        return 0.0;
-    } 
+    if (examenes[indice] == null) {
+        if (indice == 0) return 0.0;
+        return calcularPromedioRecursivo(examenes, indice - 1);
+    }
     if(indice == 0){
         return examenes[0].getNota();
     } else {
-        double promedio = (examenes[indice].getNota() + (calcularPromedioRecursivo(examenes, indice-1)*(indice-1)))/(indice + 1);
+        double promedio = (examenes[indice].getNota() + (calcularPromedioRecursivo(examenes, indice-1)*(indice)))/(indice + 1);
     return promedio;        
     }
     
