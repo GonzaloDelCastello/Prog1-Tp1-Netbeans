@@ -53,5 +53,20 @@ public class Universidad {
         }
     }
     
+    public static int contarEstudiantesRecursivo(Estudiante[] estudiantes, Carrera carrera, int indice) {
+        if (indice == estudiantes.length){
+            return 0;
+        }
+        int aux = 0;
+        
+        if(estudiantes[indice] != null){
+            if(estudiantes[indice].getCarrera().equals(carrera)){
+                aux = 1;
+            }
+        }
+        return aux + contarEstudiantesRecursivo(estudiantes, carrera, indice);
+    }
+    
+    
     
 }

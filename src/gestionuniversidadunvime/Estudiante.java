@@ -24,6 +24,30 @@ public Estudiante(String nombre, String apellido, int edad, String dni) {
     this.cantidadMaterias = 0;
 }
 
+    public Carrera getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(Carrera carrera) {
+        this.carrera = carrera;
+    }
+
+    public int getCantidadMaterias() {
+        return cantidadMaterias;
+    }
+
+    public void setCantidadMaterias(int cantidadMaterias) {
+        this.cantidadMaterias = cantidadMaterias;
+    }
+
+    public Examen[] getExamenes() {
+        return examenes;
+    }
+
+    public void setExamenes(Examen[] examenes) {
+        this.examenes = examenes;
+    }
+
 
 public void agregarMateria(Materia materia) {
     materias[cantidadMaterias] = materia;
